@@ -11,10 +11,9 @@ app = Flask(__name__)
 
 # conexão mysql
 conexao = pymysql.connect(
-    # host='127.0.0.1',
-    host='172.17.0.2',
+    host='127.0.0.1',
     user='root',
-    passwd='senhamysql',
+    passwd='alunoifro',
     db='db_contato_flask'
 )
 conexao_cursor = conexao.cursor()
