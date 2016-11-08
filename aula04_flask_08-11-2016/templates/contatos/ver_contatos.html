@@ -1,0 +1,45 @@
+{# O EXTENDS QUER DIZER QUE ESTÁ HERDANDO O TEMPLATE, E NESSE CASO, DO TEMPLATE 'base.html' #}
+{% extends 'base.html' %}
+
+{# ESSE BLOCO É O QUE DEFINIMOS NO TEMPLATE BASE, E VC PRECISA ABRIR O BLOCO E DEPOIS ENCERRÁ-LO COM endblock #}
+{% block conteudobody %}
+  <div class="row">
+    <div class="col s8 offset-l2">
+      <div class="col s12 m12 l12">
+        <h5 class="center">
+          Todos os Contatos
+        </h5>
+
+        <table>
+          <thead>
+          <tr>
+            <th data-field="id">ID</th>
+            <th data-field="nome">Nome</th>
+            <th data-field="mensagem">Mensagem</th>
+            <th data-field="data">Data</th>
+            <th data-field="link">Opções</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          {% for contato in contatos %}
+            <tr>
+              <td>{{ contato[0] }}</td>
+              <td>{{ contato[1] }}</td>
+              <td>{{ contato[2] }}</td>
+              <td>{{ contato[3] }}</td>
+              <td>
+                <a class="btn waves-light blue"
+                        href="{{ url_for('editar_contato', id=contato[0]) }}">Editar</a>
+
+                <a class="btn waves-light red"
+                        href="{{ url_for('excluir_contato', id=contato[0]) }}">Excluir</a>
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}
