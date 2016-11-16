@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} Contato - {{ contato[1] }}{% endblock %}
+
+{% block conteudobody %}
+  <br>
+  <br>
+  <br>
+
+  <div align="center">
+    <h4>Editar Contato: {{ contato[1] }}</h4>
+  </div>
+
+  <div class="row">
+    <div class="col s6 offset-l3 z-depth-2">
+      <form class="col s12" action="{{ url_for('editar_contato', id=contato[0]) }}" method="post">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="nome" type="text" class="validate" name="nome" value="{{ contato[1] }}">
+            <label class="active" for="nome">Nome</label>
+          </div>
+          <div class="input-field col s12">
+            <textarea id="mensagem" type="text" class="materialize-textarea"
+                      name="mensagem">{{ contato[2] }}</textarea>
+            <label class="active" for="mensagem">Mensagem</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn">Atualizar</button>
+
+        <br>
+        <br>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

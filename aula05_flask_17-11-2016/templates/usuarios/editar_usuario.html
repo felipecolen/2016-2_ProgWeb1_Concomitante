@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %} Usuário - {{ usuario[1] }}{% endblock %}
+
+{% block conteudobody %}
+  <br>
+  <br>
+  <br>
+
+  <div align="center">
+    <h4>Editar Usuário: {{ usuario[1] }}</h4>
+  </div>
+
+  <div class="row">
+    <div class="col s6 offset-l3 z-depth-2">
+      <form class="col s12" action="{{ url_for('editar_usuario', id=usuario[0]) }}" method="post">
+        <div class="row">
+
+          <div class="input-field col s12">
+            <input id="usuario" type="text" class="validate" name="usuario" value="{{ usuario[1] }}">
+            <label class="active" for="usuario">Usuário</label>
+          </div>
+
+          <div class="input-field col s12">
+            <input id="nome" type="text" class="validate" name="nome" value="{{ usuario[2] }}">
+            <label class="active" for="nome">Nome</label>
+          </div>
+
+          <div class="input-field col s12">
+            <input id="senha" type="password" class="validate" name="senha" value="{{ usuario[3] }}">
+            <label class="active" for="senha">Senha</label>
+          </div>
+
+        </div>
+
+        <button type="submit" class="btn">Atualizar</button>
+
+        <br>
+        <br>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

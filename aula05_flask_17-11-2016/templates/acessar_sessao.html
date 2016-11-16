@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %} Acessar - {% endblock %}
+
+{% block conteudobody %}
+  <br>
+  <br>
+  <br>
+
+  <div align="center">
+    <h4>Acessar - SESSÕES</h4>
+  </div>
+
+  <div class="row">
+    <div class="col s6 offset-l3 z-depth-2">
+      <form class="col s12" action="{{ url_for('acessar_sessao') }}" method="post" >
+        <div class="row">
+
+          <div class="input-field col s12">
+            <input id="usuario" type="text" class="validate" name="usuario" required>
+            <label for="usuario">Usuário</label>
+          </div>
+
+          <div class="input-field col s12">
+            <input id="senha" type="password" class="validate" name="senha" required>
+            <label for="senha">Senha</label>
+          </div>
+
+        </div>
+
+        <button type="submit" class="btn">Fazer Login</button>
+
+        <br>
+        <br>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

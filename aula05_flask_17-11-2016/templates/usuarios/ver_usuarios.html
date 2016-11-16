@@ -1,0 +1,76 @@
+{# O EXTENDS QUER DIZER QUE ESTÁ HERDANDO O TEMPLATE, E NESSE CASO, DO TEMPLATE 'base.html' #}
+{% extends 'base.html' %}
+
+{# ESSE BLOCO É O QUE DEFINIMOS NO TEMPLATE BASE, E VC PRECISA ABRIR O BLOCO E DEPOIS ENCERRÁ-LO COM endblock #}
+{% block conteudobody %}
+  <div class="row">
+    <div class="col s8 offset-l2">
+      <div class="col s12 m12 l12">
+        <h5 class="center">
+          Todos os USUÁRIOS
+
+          <a href="{{ url_for('cadastrar_usuario') }}" class="btn-floating btn-large waves-effect waves-light red right">
+            <i class="material-icons">add</i>
+          </a>
+
+        </h5>
+
+        <table>
+          <thead>
+          <tr>
+            <th data-field="id">ID</th>
+            <th data-field="nome">Nome</th>
+            <th data-field="mensagem">Usuário</th>
+            <th data-field="senha">Senha</th>
+            <th data-field="data">Data</th>
+            <th data-field="link">Opções</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          {% for usuario in usuarios %}
+            <tr>
+              <td>{{ usuario[0] }}</td>
+              <td>{{ usuario[2] }}</td>
+              <td>{{ usuario[1] }}</td>
+              <td>{{ usuario[3] }}</td>
+              <td>{{ usuario[4] }}</td>
+              <td style="position: relative; height: 70px;">
+
+{#                <a class="btn waves-light blue"#}
+{#                   href="{{ url_for('editar_usuario', id=usuario[0]) }}">Editar</a>#}
+{##}
+{#                <a class="btn waves-light red"#}
+{#                   href="{{ url_for('excluir_usuario', id=usuario[0]) }}">Excluir</a>#}
+
+                <div class="fixed-action-btn horizontal" style="position: absolute; display: inline-block; top: 5px">
+                  <a class="btn-floating green btn-large">
+                    <i class="large material-icons">mode_edit</i>
+                  </a>
+                  <ul>
+                    <li>
+                      <a class="btn-floating red"  href="{{ url_for('excluir_usuario', id=usuario[0]) }}">
+                        <i class="material-icons">delete</i>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="btn-floating orange" href="{{ url_for('editar_usuario', id=usuario[0]) }}">
+                        <i class="material-icons">edit</i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+
+
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
