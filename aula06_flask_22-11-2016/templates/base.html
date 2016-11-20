@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+  {#  TODO AQUI EU POSSO CRIAR UM BLOCO PRO TITLE  #}
+  <title>
+    {% block title %} {% endblock %}
+    Meu site com materialize
+  </title>
+
+  <!-- CSS  -->
+  {#  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">#}
+  {#  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>#}
+  {#  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>#}
+
+  {#  UTILIZANDO SOMENTE O HTML AINDA, BASTA INCLUIR /static/ #}
+  <!--  <link href="/static/css/fonts_googleapis.css" rel="stylesheet">  -->
+  <!--  <link href="/static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>  -->
+  <!--  <link href="/static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>  -->
+
+  {#  AQUI É INCLUINDO O GERENCIAMENTO DESSES ARQUIVOS ESTÁTICOS PELO FLASK, DEFININDO UMA URL SEGURA #}
+  <link href="{{ url_for('static', filename='css/fonts_googleapis.css') }}"
+        type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{{ url_for('static', filename='css/materialize.min.css') }}"
+        type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{{ url_for('static', filename='css/style.css') }}"
+        type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+<nav class="green darken-2" role="navigation">
+  <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">PW1</a>
+    <ul class="right hide-on-med-and-down">
+      <li>
+	  <a href="/">
+	    Index
+	  </a>
+	</li>
+    </ul>
+
+    <ul id="nav-mobile" class="side-nav">
+      <li>
+	  <a href="/">
+	    Index
+	  </a>
+	</li>
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
+<br>
+<br>
+<br>
+
+{# TODO AQUI EU POSSO CRIAR O BLOCO CONTEÚDO #}
+{% block conteudobody %} {% endblock %}
+
+<!--  Scripts-->
+{#  AQUI ESTAVA O CÓDIGO ANTIGO EM HTML COMUM #}
+{#  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>#}
+{#  <script src="js/materialize.js"></script>#}
+{#  <script src="js/init.js"></script>#}
+
+{#  UTILIZANDO SOMENTE O HTML AINDA, BASTA INCLUIR /static/ #}
+<!--  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+<!--  <script src="/static/js/materialize.js"></script> -->
+<!--  <script src="/static/js/init.js"></script> -->
+
+
+{#  AQUI É INCLUINDO O GERENCIAMENTO DESSES ARQUIVOS ESTÁTICOS PELO FLASK, DEFININDO UMA URL SEGURA #}
+<script src="{{ url_for('static', filename='js/jquery-2.1.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/init.js') }}"></script>
+
+</body>
+</html>

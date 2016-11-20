@@ -41,7 +41,7 @@ def conectar_ao_banco():
 
     # conexão mysql
     conexao = pymysql.connect(
-        host='127.0.0.1',
+        host='localhost',
         user='root',
         passwd='alunoifro',
         db='mysql'

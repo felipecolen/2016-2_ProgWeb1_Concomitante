@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 # conexão mysql
 conexao = pymysql.connect(
-    host='127.0.0.1',
+    host='localhost',
     user='root',
     passwd='alunoifro',
     db='db_contato_flask'
